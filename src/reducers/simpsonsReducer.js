@@ -1,4 +1,4 @@
-//store a quote characterName and characterImage
+import { FETCH_QUOTES, FETCH_QUOTES_LOADING } from '../actions/simpsonsActions';
 
 const initialState = {
   quotes: {
