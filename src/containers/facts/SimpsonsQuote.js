@@ -3,13 +3,20 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Quote from '../../components/quote/Quote';
 import { fetchQuotes } from '../../actions/simpsonsActions';
-// import selectors
+import { 
+  getQuote,
+  getCharacterName,
+  getCharacterImage,
+  getLoading 
+} from '../../selectors/simpsonsSelector';
 
 class SimpsonsQuote extends Component {
   static propTypes = {
     fetch: PropTypes.func.isRequired,
     quotes: PropTypes.array.isRequired,
     loading: PropTypes.bool.isRequired,
+    characterName: PropTypes.string.isRequired,
+    characterImage: PropTypes.string.isRequired,
     error: PropTypes.object
   }
 
@@ -19,15 +26,18 @@ class SimpsonsQuote extends Component {
 
   render() {
     const { quotes, loading } = this.props;
-    if(loading) return <h1>LOADING</h1>;
+    if(this.props.loading) return <h1>LOADING</h1>;
 
     return <Quote quotes={quotes} />;
   }
 }
 
 const mapStateToProps = state => ({
-  //add selectors here
-})
+  quotes: getQuote(state),
+  characterName: getCharacterName(state),
+  characterImage: getCharacterImage(state),
+  loading: getLoading(state)
+});
 
 const mapDispatchToProps = dispatch => ({
   fetch() {
