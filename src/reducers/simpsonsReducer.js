@@ -15,7 +15,7 @@ export default function reducer(state = initialState, action) {
     case FETCH_QUOTES_LOADING:
       return { ...state, loading: true };
     case FETCH_QUOTES:
-      return { ...state, loading: false, error: null, quotes: action.payload };
+      return { ...state, loading: false, error: null, quotes: action.payload[0] };
     default:
       return state;
   }

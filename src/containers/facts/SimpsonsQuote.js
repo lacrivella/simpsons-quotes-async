@@ -28,7 +28,7 @@ class SimpsonsQuote extends Component {
     const { quote, characterName, characterImage, loading } = this.props;
     if(loading) return <h1>LOADING</h1>;
 
-    return <Quote quotes={ { quote, characterName, characterImage } } />;
+    return <Quote quote={quote} characterName= {characterName} characterImage={characterImage} />;
   }
 }
 
