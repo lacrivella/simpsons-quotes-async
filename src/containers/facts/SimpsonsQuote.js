@@ -13,8 +13,8 @@ import {
 class SimpsonsQuote extends Component {
   static propTypes = {
     fetch: PropTypes.func.isRequired,
-    quotes: PropTypes.array.isRequired,
     loading: PropTypes.bool.isRequired,
+    quote: PropTypes.string.isRequired,
     characterName: PropTypes.string.isRequired,
     characterImage: PropTypes.string.isRequired,
     error: PropTypes.object
@@ -25,15 +25,15 @@ class SimpsonsQuote extends Component {
   }
 
   render() {
-    const { quotes, loading } = this.props;
-    if(this.props.loading) return <h1>LOADING</h1>;
+    const { quote, characterName, characterImage, loading } = this.props;
+    if(loading) return <h1>LOADING</h1>;
 
-    return <Quote quotes={quotes} />;
+    return <Quote quotes={ { quote, characterName, characterImage } } />;
   }
 }
 
 const mapStateToProps = state => ({
-  quotes: getQuote(state),
+  quote: getQuote(state),
   characterName: getCharacterName(state),
   characterImage: getCharacterImage(state),
   loading: getLoading(state)

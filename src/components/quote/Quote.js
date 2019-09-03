@@ -1,22 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-//might need to put quote character and image in sepereate div
-function Quote({ quotes }) {
+function Quote({ quote, characterName, characterImage }) {
   return (
     <section>
-      <p>{quotes}</p>
+      <img src ={characterImage}></img>
+      <h3>{characterName}</h3>
+      <h3>{quote}</h3>
     </section>
-  )
+  );
 }
 
 Quote.propTypes = {
-  quotes: PropTypes.arrayOf(PropTypes.shape({
-    quote: PropTypes.string.isRequired,
-    characterName: PropTypes.string.isRequired,
-    characterImage: PropTypes.string.isRequired
-  })).isRequired,
-}
+  quote: PropTypes.string.isRequired,
+  characterName: PropTypes.string.isRequired,
+  characterImage: PropTypes.string.isRequired
+};
 
 export default Quote;
 

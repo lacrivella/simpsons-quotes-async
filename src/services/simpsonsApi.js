@@ -4,6 +4,8 @@ export const getQuote = () => {
       if(!res.ok) throw 'unable to get quote';
       return res.json();
     })
+    
+    //this isnt coming back right. [{quote: ....}]
     .then(json => json.map(quote => ({
       quote: quote.quote,
       characterName: quote.character,
