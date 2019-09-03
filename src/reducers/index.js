@@ -1,4 +1,4 @@
 import { combineReducers } from 'redux';
-import reducer from './simpsonsReducer';
+import character from './simpsonsReducer';
 
-export default combineReducers({ reducer });
+export default combineReducers({ character });
