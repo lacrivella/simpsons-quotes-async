@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Baloo&display=swap');
+.Quote {
+  font-family: 'Baloo', cursive;
+  text-align: center;
+  img {
+    height: 40vh;
+  }
+
+}

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Quote from '../../components/quote/Quote';
+import Load from '../../components/quote/Load';
 import { fetchQuotes } from '../../actions/simpsonsActions';
 import { 
   getQuote,
@@ -28,7 +29,12 @@ class SimpsonsQuote extends Component {
     const { quote, characterName, characterImage, loading } = this.props;
     if(loading) return <h1>LOADING</h1>;
 
-    return <Quote quote={quote} characterName= {characterName} characterImage={characterImage} />;
+    return (
+    <>
+    <Quote quote={quote} characterName= {characterName} characterImage={characterImage} />
+    <Load handleButton={this.props.fetch} />
+    </>
+    );
   }
 }
 
